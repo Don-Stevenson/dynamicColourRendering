@@ -16,5 +16,8 @@
   "bugs": {
     "url": "https://github.com/Don-Stevenson/dynamicColourRendering/issues"
   },
-  "homepage": "https://github.com/Don-Stevenson/dynamicColourRendering#readme"
+  "homepage": "https://github.com/Don-Stevenson/dynamicColourRendering#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
 }
