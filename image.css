@@ -10,3 +10,7 @@ html {
 *:after {
   box-sizing: border-box;
 }
+
+#container {
+    position: relative;
+  }
