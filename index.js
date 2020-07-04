@@ -18,3 +18,7 @@ const dynamicColours = {
 app.get("/dynamicColours", (request, response) => {
   response.send(dynamicColours);
 });
+
+app.get("/", (request, response) => {
+  response.send("homepage is here");
+});
