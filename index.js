@@ -11,5 +11,5 @@ app.listen(PORT, () => {
 });
 
 app.get("/dynamicColours", (request, response) => {
-  response.send(image);
+  response.send("in dynamic colours");
 });
