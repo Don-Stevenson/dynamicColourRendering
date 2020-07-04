@@ -10,8 +10,10 @@ app.listen(PORT, () => {
   console.log(`Example app listening on port ${PORT}`);
 });
 
-const dynamicColours = {imageDescription: "cabinet",
-src: "https://www.ikea.com/ca/en/p/hemnes-3-drawer-chest-white-20360421/" }
+const dynamicColours = {
+  imageDescription: "3 drawer, white chest",
+  src: "https://www.ikea.com/ca/en/p/hemnes-3-drawer-chest-white-20360421/"
+};
 
 app.get("/dynamicColours", (request, response) => {
   response.send(dynamicColours);
