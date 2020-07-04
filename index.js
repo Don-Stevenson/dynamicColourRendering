@@ -12,7 +12,7 @@ app.listen(PORT, () => {
 
 const dynamicColours = {
   imageDescription: "3 drawer, white chest",
-  src: "https://www.ikea.com/ca/en/p/hemnes-3-drawer-chest-white-20360421/"
+  srcURL: "https://www.ikea.com/ca/en/p/hemnes-3-drawer-chest-white-20360421/"
 };
 
 app.get("/dynamicColours", (request, response) => {
