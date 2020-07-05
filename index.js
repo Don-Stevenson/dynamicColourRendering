@@ -2,11 +2,11 @@
 require("dotenv").config();
 
 // Web server config
-const PORT = process.env.PORT || 8080;
+const PORT = process.env.PORT ||3001;
 const express = require("express");
 const app = express();
 // setup ejs
-app.set('view engine', 'ejs')
+app.set("view engine", "ejs");
 
 app.listen(PORT, () => {
   console.log(`Example app listening on port ${PORT}`);
@@ -22,9 +22,8 @@ app.get("/dynamicColours", (request, response) => {
 });
 
 app.get("/test", (request, response) => {
-  response.sendFile(__dirname + "/image.html");
+  response.render("colourPicker");
 });
-
 
 app.get("/", (request, response) => {
   response.send("homepage is here");
