@@ -20,7 +20,7 @@ app.get("/dynamicColours", (request, response) => {
 });
 
 app.get("/test", (request, response) => {
-  response.send("test is here");
+  response.sendFile(__dirname + "/image.html");
 });
 
 
