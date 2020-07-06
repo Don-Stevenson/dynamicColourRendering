@@ -21,7 +21,7 @@ app.get("/dynamicColours", (request, response) => {
   response.send(dynamicColours);
 });
 
-app.get("/test", (request, response) => {
+app.get("/colourPicker", (request, response) => {
   response.render("colourPicker");
 });
 
