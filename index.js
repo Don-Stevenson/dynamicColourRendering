@@ -12,19 +12,15 @@ app.listen(PORT, () => {
   console.log(`Example app listening on port ${PORT}`);
 });
 
-const dynamicColours = {
-  imageDescription: "3 drawer, white chest",
-  srcURL: "https://www.ikea.com/ca/en/p/hemnes-3-drawer-chest-white-20360421/"
-};
-
-app.get("/dynamicColours", (request, response) => {
-  response.send(dynamicColours);
+// homepage
+// *******
+app.get("/", (request, response) => {
+  response.send("homepage is here");
 });
 
+// Actual working route with render
+//******************************* */
 app.get("/colourPicker", (request, response) => {
   response.render("colourPicker");
 });
 
-app.get("/", (request, response) => {
-  response.send("homepage is here");
-});
