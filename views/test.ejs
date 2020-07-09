@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script>
+      async function numberFacts() {
+        try {
+          let numberTrivia = await fetch("http://numbersapi.com/random/trivia");
+          let numText = await numberTrivia.text();
+          document.getElementById("myText").innerHTML = numText;
+        } catch (error) {
+          console.error(error);
+        }
+      }
+    </script>
+  </head>
+
+  <style>
+h1 {
+  color: darkblue;
+  text-align: center;
+  font-family: Arial, Helvetica, sans-serif;
+}
+body {
+  background-color: lightblue;
+}
+
+  </style>
+
+  <body onload="numberFacts()">
+    <h1>The number and fact are: <span id="myText"></span></h1>
+  </body>
+</html>
