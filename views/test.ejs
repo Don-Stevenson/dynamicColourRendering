@@ -2,31 +2,38 @@
 <html>
   <style>
     h1 {
-      color: rgb(53, 10, 31);
+      color: rgb(139, 35, 85);
       text-align: center;
       font-family: Arial, Helvetica, sans-serif;
     }
+    h2 {
+      color: rgb(218, 34, 34);
+      text-align: center;
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 3rem;
+    }
+
     body {
       background-color: lightblue;
     }
   </style>
   <head>
     <script>
-      const getFirstWord = str => {
+      const getTheNumber = str => {
         let spaceIndex = str.indexOf(" ");
         return spaceIndex === -1 ? str : str.substr(0, spaceIndex);
       };
 
       async function numberFacts() {
         try {
-          // getting the trivia of the number
+          // getting the trivia of the a random number
           let numberTrivia = await fetch("http://numbersapi.com/random/trivia");
 
           // converting it to text
           let numText = await numberTrivia.text();
 
           // getting the number out of the string
-          let num = getFirstWord(numText);
+          let num = getTheNumber(numText);
 
           // seperating the number at the beggining from the rest of the text
           numText = numText.split(" ").slice(2).join(" ");
@@ -42,7 +49,7 @@
   </head>
 
   <body onload="numberFacts()">
-    <h1>The number: <span id="Number"></span></h1>
-    <h1>The fact: <span id="numFact"></span></h1>
+    <h1>The number:</h1> <h2><span id="Number"></span></h2>
+    <h1>The fact:</h1> <h2><span id="numFact"></span></h2>
   </body>
 </html>
