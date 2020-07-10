@@ -1,19 +1,5 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <script>
-      async function numberFacts() {
-        try {
-          let numberTrivia = await fetch("http://numbersapi.com/random/trivia");
-          let numText = await numberTrivia.text();
-          document.getElementById("myText").innerHTML = numText;
-        } catch (error) {
-          console.error(error);
-        }
-      }
-    </script>
-  </head>
-
   <style>
     h1 {
       color: rgb(117, 17, 67);
@@ -24,8 +10,43 @@
       background-color: lightblue;
     }
   </style>
+  <head>
+    <script>
+      const numCount = str => {
+        let count = 0;
+        for (let item of str)
+          if (parseInt(item, 10)) {
+            count++;
+          }
+        return count;
+      };
+
+      async function numberFacts() {
+        try {
+          // getting the trivia of the number
+          let numberTrivia = await fetch("http://numbersapi.com/random/trivia");
+
+          // converting it to text
+          let numText = await numberTrivia.text();
+
+          // counting the numbers in the string
+          let countOfnumbers = numText.replace(/\D/g, "").length;
+
+          // seperating the number at the beggining from the rest of the text
+          let num = numText.slice(0, countOfnumbers);
+          
+          // send out the information to the html
+          document.getElementById("numFact").innerHTML = numText;
+          document.getElementById("Number").innerHTML = num;
+        } catch (error) {
+          console.error(error);
+        }
+      }
+    </script>
+  </head>
 
   <body onload="numberFacts()">
-    <h1>The number and fact are: <span id="myText"></span></h1>
+    <h1>The number is: <span id="Number"></span></h1>
+    <h1>The fact is: <span id="numFact"></span></h1>
   </body>
 </html>
