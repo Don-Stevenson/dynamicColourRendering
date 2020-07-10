@@ -68,8 +68,39 @@ body {
   display: block;
 }
 </style>
+<script>
+  const getTheNumber = str => {
+   let spaceIndex = str.indexOf(" ");
+   return spaceIndex === -1 ? str : str.substr(0, spaceIndex);
+ };
+
+ async function numberFacts() {
+   try {
+     // getting the trivia of the a random number
+     let numberTrivia = await fetch("http://numbersapi.com/random/trivia");
+
+     // converting it to text
+     let numText = await numberTrivia.text();
+
+     // getting the number out of the string
+     let num = getTheNumber(numText);
+
+     // seperating the number at the beggining from the rest of the text
+     numText = numText.split(" ").slice(2).join(" ");
+
+     // send out the information to the html
+     document.getElementById("numFact").innerHTML = numText;
+     document.getElementById("Number").innerHTML = num;
+   } catch (error) {
+     console.error(error);
+   }
+ }
+</script>
+
 </head>
-<body>
+  <body onload="numberFacts()">
+    <h1>The number:</h1> <h2><span id="Number"></span></h2>
+    <h1>This number represents:</h1> <h2><span id="numFact"></span></h2>
 
 <div class="navbar">
   <div class="dropdown">
@@ -77,8 +108,9 @@ body {
       <i class="fa fa-caret-down"></i>
     </button>
     <div class="dropdown-content">
-      <a href="#">Link 1</a>
-      <a href="#">Link 2</a>
+      <a href="#">The number:</a>
+      <a href="#">This number represents:</a>
+      <h1>This number represents:</h1> <h2><span id="numFact"></span></h2>
       <a href="#">Link 3</a>
     </div>
   </div> 
