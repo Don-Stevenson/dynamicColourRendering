@@ -6,7 +6,10 @@
 <style>
 body {
   font-family: Arial, Helvetica, sans-serif;
+  background-color: rgb(202, 229, 233);
 }
+
+
 
 .navbar {
   overflow: hidden;
@@ -70,6 +73,8 @@ body {
 </style>
 <script>
   const getTheNumber = str => {
+
+  // returns the first group of characters up to a space
    let spaceIndex = str.indexOf(" ");
    return spaceIndex === -1 ? str : str.substr(0, spaceIndex);
  };
@@ -110,8 +115,7 @@ body {
     <div class="dropdown-content">
       <a href="#">The number:</a>
       <a href="#">This number represents:</a>
-      <h1>This number represents:</h1> <h2><span id="numFact"></span></h2>
-      <a href="#">Link 3</a>
+      <a href="http://google.com">Link to number trivia</a>
     </div>
   </div> 
 </div>
