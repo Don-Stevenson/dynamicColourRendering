@@ -12,14 +12,11 @@
   </style>
   <head>
     <script>
-      const numCount = str => {
-        let count = 0;
-        for (let item of str)
-          if (parseInt(item, 10)) {
-            count++;
-          }
-        return count;
-      };
+    const getFirstWord = (str) => {
+        let spaceIndex = str.indexOf(' ');
+        return spaceIndex === -1 ? str : str.substr(0, spaceIndex);
+    };
+
 
       async function numberFacts() {
         try {
@@ -29,11 +26,11 @@
           // converting it to text
           let numText = await numberTrivia.text();
 
-          // counting the numbers in the string
-          let countOfnumbers = numText.replace(/\D/g, "").length;
+          // getting the number out of the string
+          let num = getFirstWord(numText)
 
           // seperating the number at the beggining from the rest of the text
-          let num = numText.slice(0, countOfnumbers);
+          numText = numText.split(' ').slice(2).join(' ')
           
           // send out the information to the html
           document.getElementById("numFact").innerHTML = numText;
@@ -46,7 +43,7 @@
   </head>
 
   <body onload="numberFacts()">
-    <h1>The number is: <span id="Number"></span></h1>
-    <h1>The fact is: <span id="numFact"></span></h1>
+    <h1>The number: <span id="Number"></span></h1>
+    <h1>The fact: <span id="numFact"></span></h1>
   </body>
 </html>
