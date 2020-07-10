@@ -12,11 +12,10 @@
   </style>
   <head>
     <script>
-    const getFirstWord = (str) => {
-        let spaceIndex = str.indexOf(' ');
+      const getFirstWord = str => {
+        let spaceIndex = str.indexOf(" ");
         return spaceIndex === -1 ? str : str.substr(0, spaceIndex);
-    };
-
+      };
 
       async function numberFacts() {
         try {
@@ -27,11 +26,11 @@
           let numText = await numberTrivia.text();
 
           // getting the number out of the string
-          let num = getFirstWord(numText)
+          let num = getFirstWord(numText);
 
           // seperating the number at the beggining from the rest of the text
-          numText = numText.split(' ').slice(2).join(' ')
-          
+          numText = numText.split(" ").slice(2).join(" ");
+
           // send out the information to the html
           document.getElementById("numFact").innerHTML = numText;
           document.getElementById("Number").innerHTML = num;
